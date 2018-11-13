@@ -10,6 +10,8 @@ import com.intellij.openapi.editor.CaretModel;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiFile;
+import java.util.ArrayList;
+import java.util.Hashtable;
 import org.jetbrains.uast.java.JavaUClass;
 
 public class SearchAction extends AnAction {
@@ -18,6 +20,8 @@ public class SearchAction extends AnAction {
     public void actionPerformed(AnActionEvent e) {
         PsiFile file = e.getData(CommonDataKeys.PSI_FILE);
         FileASTNode astNode = file.getNode();
+
+        Hashtable a = new Hashtable();
 
 //astNode.findChildByType(Javatypes
 
@@ -41,6 +45,13 @@ public class SearchAction extends AnAction {
     }
 
     private void help() {
+
+        ArrayList<String> jj = new ArrayList<>();
+        jj.add("asdf");
+        for(String x : jj) {
+            System.out.println(x);
+        }
+
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 100; j++) {
                 for (int k = 0; k < 1000; k++) {

@@ -4,6 +4,7 @@ package com.aurea.sample;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Set;
 
@@ -27,6 +28,8 @@ public class Main {
 
         Set<String> names4 = new HashSet<>(names2);
         boolean b4 = names4.contains("name1");
+
+        Hashtable a = new Hashtable();
 
     }
 }

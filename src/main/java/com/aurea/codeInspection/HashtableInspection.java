@@ -22,7 +22,9 @@ import com.intellij.psi.PsiElementFactory;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.PsiExpression;
 import com.intellij.psi.PsiLiteralExpression;
+import com.intellij.psi.PsiMethod;
 import com.intellij.psi.PsiMethodCallExpression;
+import com.intellij.psi.PsiNewExpression;
 import com.intellij.psi.PsiPrefixExpression;
 import com.intellij.psi.PsiReferenceExpression;
 import com.intellij.psi.PsiType;
@@ -226,6 +228,41 @@ public class HashtableInspection extends AbstractBaseJavaLocalInspectionTool {
 //      registerError(typeElement);
         }
 
+        @Override
+        public void visitMethod(PsiMethod method) {
+            super.visitMethod(method);
+            final PsiType returnType = method.getReturnType();
+            if (!isHashtableType(returnType)) {
+                return;
+            }
+            if (LibraryUtil.isOverrideOfLibraryMethod(method)) {
+                return;
+            }
+            final PsiTypeElement typeElement = method.getReturnTypeElement();
+            if (typeElement == null) {
+                return;
+            }
+//      if (ignoreRequiredObsoleteCollectionTypes && checkReferences(method)) {
+//        return;
+//      }
+            holder.registerProblem(typeElement, DESCRIPTION_TEMPLATE);
+//      registerError(typeElement);
+        }
+
+        @Override
+        public void visitNewExpression(
+                @NotNull PsiNewExpression newExpression) {
+            super.visitNewExpression(newExpression);
+            final PsiType type = newExpression.getType();
+            if (!isHashtableType(type)) {
+                return;
+            }
+//      if (ignoreRequiredObsoleteCollectionTypes && isRequiredObsoleteCollectionElement(newExpression)) {
+//        return;
+//      }
+            holder.registerProblem(newExpression, DESCRIPTION_TEMPLATE);
+//      registerNewExpressionError(newExpression);
+        }
         private boolean isHashtableType(@Nullable PsiType type) {
             if (type == null) {
                 return false;

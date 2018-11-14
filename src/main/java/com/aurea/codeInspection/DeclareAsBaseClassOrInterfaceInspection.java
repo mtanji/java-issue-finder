@@ -1,11 +1,15 @@
 package com.aurea.codeInspection;
 
 import com.aurea.plugin.TrilogyBundle;
+import com.intellij.codeInspection.AbstractBaseJavaLocalInspectionTool;
 import com.intellij.codeInspection.InspectionsBundle;
+import com.intellij.codeInspection.ProblemsHolder;
 import com.intellij.codeInspection.ui.MultipleCheckboxOptionsPanel;
+import com.intellij.psi.JavaElementVisitor;
 import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiClassType;
 import com.intellij.psi.PsiElement;
+import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.PsiField;
 import com.intellij.psi.PsiJavaCodeReferenceElement;
 import com.intellij.psi.PsiLocalVariable;
@@ -29,8 +33,12 @@ import javax.swing.JComponent;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class DeclareAsBaseClassOrInterfaceInspection extends BaseInspection {
+public class DeclareAsBaseClassOrInterfaceInspection
+        extends AbstractBaseJavaLocalInspectionTool
+//        extends BaseInspection
+{
 
+    String DESCRIPTION_TEMPLATE = TrilogyBundle.message("inspection.trilogy.concrete.type.problem.descriptor");
     /**
      * @noinspection PublicField
      */
@@ -53,20 +61,20 @@ public class DeclareAsBaseClassOrInterfaceInspection extends BaseInspection {
                 "collection.declared.by.class.display.name");
     }
 
-    /**
-     * Build the message that is shown when hovering the code violation
-     * @param infos
-     * @return
-     */
-    @Override
-    @NotNull
-    public String buildErrorString(Object... infos) {
-        final String type = (String)infos[0];
-        return TrilogyBundle.message("inspection.trilogy.concrete.type.problem.descriptor");
-//        return InspectionGadgetsBundle.message(
-//                "collection.declared.by.class.problem.descriptor",
-//                type);
-    }
+//    /**
+//     * Build the message that is shown when hovering the code violation
+//     * @param infos
+//     * @return
+//     */
+//    @Override
+//    @NotNull
+//    public String buildErrorString(Object... infos) {
+//        final String type = (String)infos[0];
+//        return TrilogyBundle.message("inspection.trilogy.concrete.type.problem.descriptor");
+////        return InspectionGadgetsBundle.message(
+////                "collection.declared.by.class.problem.descriptor",
+////                type);
+//    }
 
     @Override
     @Nullable
@@ -132,18 +140,32 @@ public class DeclareAsBaseClassOrInterfaceInspection extends BaseInspection {
 //        }
 //    }
 
+//    @Override
+//    public BaseInspectionVisitor buildVisitor() {
+//        return new DeclareAsBaseClassOrInterfaceVisitor();
+//    }
+
+    @NotNull
     @Override
-    public BaseInspectionVisitor buildVisitor() {
-        return new DeclareAsBaseClassOrInterfaceVisitor();
+    public PsiElementVisitor buildVisitor(@NotNull final ProblemsHolder holder, boolean isOnTheFly) {
+        return new DeclareAsBaseClassOrInterfaceVisitor(holder);
     }
 
-    private class DeclareAsBaseClassOrInterfaceVisitor extends BaseInspectionVisitor {
+    private class DeclareAsBaseClassOrInterfaceVisitor
+            extends JavaElementVisitor
+//            extends BaseInspectionVisitor
+    {
+
+        private final ProblemsHolder holder;
+        DeclareAsBaseClassOrInterfaceVisitor(final ProblemsHolder holder) {
+            this.holder = holder;
+        }
 
         @Override
         public void visitVariable(@NotNull PsiVariable variable) {
-            if (isOnTheFly() && DeclarationSearchUtils.isTooExpensiveToSearch(variable, false)) {
-                return;
-            }
+//            if (isOnTheFly() && DeclarationSearchUtils.isTooExpensiveToSearch(variable, false)) {
+//                return;
+//            }
             // consider always private methods and fields
 //            if (ignoreLocalVariables && variable instanceof PsiLocalVariable) {
 //                return;
@@ -188,9 +210,9 @@ public class DeclareAsBaseClassOrInterfaceInspection extends BaseInspection {
 //                    method.hasModifierProperty(PsiModifier.PRIVATE)) {
 //                return;
 //            }
-            if (isOnTheFly() && DeclarationSearchUtils.isTooExpensiveToSearch(method, false)) {
-                return;
-            }
+//            if (isOnTheFly() && DeclarationSearchUtils.isTooExpensiveToSearch(method, false)) {
+//                return;
+//            }
             final PsiType type = method.getReturnType();
             if (!CollectionUtils.isConcreteCollectionClass(type) || LibraryUtil.isOverrideOfLibraryMethod(method)) {
                 return;
@@ -222,7 +244,9 @@ public class DeclareAsBaseClassOrInterfaceInspection extends BaseInspection {
             String qualifiedName = weaklingList.isEmpty() ? CollectionUtils.getInterfaceForClass(type.getCanonicalText())
                     : weaklingList.get(0).getQualifiedName();
             if (qualifiedName != null) {
-                registerError(nameElement, qualifiedName);
+//                registerError(nameElement, qualifiedName);
+                holder.registerProblem(typeElement, DESCRIPTION_TEMPLATE);
+
             }
         }
     }

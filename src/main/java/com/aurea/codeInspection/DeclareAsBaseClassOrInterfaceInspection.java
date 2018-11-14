@@ -76,19 +76,19 @@ public class DeclareAsBaseClassOrInterfaceInspection
 ////                type);
 //    }
 
-    @Override
-    @Nullable
-    public JComponent createOptionsPanel() {
-        final MultipleCheckboxOptionsPanel optionsPanel =
-                new MultipleCheckboxOptionsPanel(this);
-        optionsPanel.addCheckbox(InspectionGadgetsBundle.message(
-                "collection.declared.by.class.ignore.locals.option"),
-                "ignoreLocalVariables");
-        optionsPanel.addCheckbox(InspectionGadgetsBundle.message(
-                "collection.declared.by.class.ignore.private.members.option"),
-                "ignorePrivateMethodsAndFields");
-        return optionsPanel;
-    }
+//    @Override
+//    @Nullable
+//    public JComponent createOptionsPanel() {
+//        final MultipleCheckboxOptionsPanel optionsPanel =
+//                new MultipleCheckboxOptionsPanel(this);
+//        optionsPanel.addCheckbox(InspectionGadgetsBundle.message(
+//                "collection.declared.by.class.ignore.locals.option"),
+//                "ignoreLocalVariables");
+//        optionsPanel.addCheckbox(InspectionGadgetsBundle.message(
+//                "collection.declared.by.class.ignore.private.members.option"),
+//                "ignorePrivateMethodsAndFields");
+//        return optionsPanel;
+//    }
 
     // there is no need to provide fix in current plugin scope
 //    @Override

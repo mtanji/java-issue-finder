@@ -1,0 +1,10 @@
+<html>
+<body>
+<strong>Hashtable</strong> is specific to legacy code and has the main problem in that it's synchronized. <br>
+This means that it will be slow in any circumstance where it is shared between threads. <br>
+<strong>ConcurrentHashMap</strong> is a better choice in that situation. <br>
+On the other hand, on a single thread, the un-synchronized <strong>HashMap</strong> is a better choice. <br>
+In this case, consider using <strong>{{ConcurrentHashMap/HashMap}}</strong>. <br>
+More details: <a href="https://confluence.devfactory.com/x/_xmkEw">https://confluence.devfactory.com/x/_xmkEw</a>
+</body>
+</html>

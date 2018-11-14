@@ -29,7 +29,7 @@
     <inspectionToolProvider implementation="com.aurea.codeInspection.ComparingReferencesProvider"/>
 
     <localInspection
-      groupPath="Java" language="JAVA" shortName="HashtableInspection"
+      groupPath="Java" language="JAVA" shortName="Hashtable"
       bundle="messages.TrilogyBundle"
       key="inspection.trilogy.hashtable"
       groupBundle="messages.TrilogyBundle"
@@ -38,7 +38,7 @@
       level="ERROR"
       implementationClass="com.aurea.codeInspection.HashtableInspection" />
     <localInspection
-      groupPath="Java" language="JAVA" shortName="DeclareAsBaseClassOrInterfaceInspection"
+      groupPath="Java" language="JAVA" shortName="DeclareAsBaseClassOrInterface"
       bundle="messages.TrilogyBundle"
       key="inspection.trilogy.concrete.type"
       groupBundle="messages.TrilogyBundle"

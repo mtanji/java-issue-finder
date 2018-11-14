@@ -70,8 +70,8 @@ public class HashtableInspection extends AbstractBaseJavaLocalInspectionTool {
     @NonNls
     public String CHECKED_CLASSES = "java.lang.String;java.util.Date";
     @NonNls
-    private static final String DESCRIPTION_TEMPLATE =
-            InspectionsBundle.message("inspection.comparing.references.problem.descriptor");
+    private static final String DESCRIPTION_TEMPLATE = "Using #ref";
+//            InspectionsBundle.message("inspection.comparing.references.problem.descriptor");
 
     @NotNull
     public String getDisplayName() {
@@ -88,17 +88,17 @@ public class HashtableInspection extends AbstractBaseJavaLocalInspectionTool {
         return "ComparingReferences";
     }
 
-    private boolean isCheckedType(PsiType type) {
-        if (!(type instanceof PsiClassType)) return false;
-
-        StringTokenizer tokenizer = new StringTokenizer(CHECKED_CLASSES, ";");
-        while (tokenizer.hasMoreTokens()) {
-            String className = tokenizer.nextToken();
-            if (type.equalsToText(className)) return true;
-        }
-
-        return false;
-    }
+//    private boolean isCheckedType(PsiType type) {
+//        if (!(type instanceof PsiClassType)) return false;
+//
+//        StringTokenizer tokenizer = new StringTokenizer(CHECKED_CLASSES, ";");
+//        while (tokenizer.hasMoreTokens()) {
+//            String className = tokenizer.nextToken();
+//            if (type.equalsToText(className)) return true;
+//        }
+//
+//        return false;
+//    }
 
     @NotNull
     @Override
@@ -138,9 +138,9 @@ public class HashtableInspection extends AbstractBaseJavaLocalInspectionTool {
 //    };
     }
 
-    private static boolean isNullLiteral(PsiExpression expr) {
-        return expr instanceof PsiLiteralExpression && "null".equals(expr.getText());
-    }
+//    private static boolean isNullLiteral(PsiExpression expr) {
+//        return expr instanceof PsiLiteralExpression && "null".equals(expr.getText());
+//    }
 
     private static class MyQuickFix implements LocalQuickFix {
         @NotNull
@@ -278,35 +278,35 @@ public class HashtableInspection extends AbstractBaseJavaLocalInspectionTool {
 
     }
     //==============================================================
-    class ComparingReferencesVisitor extends JavaElementVisitor {
-
-        private final ProblemsHolder holder;
-        ComparingReferencesVisitor(final ProblemsHolder holder) {
-            this.holder = holder;
-        }
-
-        @Override
-        public void visitReferenceExpression(PsiReferenceExpression psiReferenceExpression) {
-        }
-
-
-        @Override
-        public void visitBinaryExpression(PsiBinaryExpression expression) {
-            super.visitBinaryExpression(expression);
-            IElementType opSign = expression.getOperationTokenType();
-            if (opSign == JavaTokenType.EQEQ || opSign == JavaTokenType.NE) {
-                PsiExpression lOperand = expression.getLOperand();
-                PsiExpression rOperand = expression.getROperand();
-                if (rOperand == null || isNullLiteral(lOperand) || isNullLiteral(rOperand)) return;
-
-                PsiType lType = lOperand.getType();
-                PsiType rType = rOperand.getType();
-
-                if (isCheckedType(lType) || isCheckedType(rType)) {
-                    holder.registerProblem(expression,
-                            DESCRIPTION_TEMPLATE, myQuickFix);
-                }
-            }
-        }
-    }
+//    class ComparingReferencesVisitor extends JavaElementVisitor {
+//
+//        private final ProblemsHolder holder;
+//        ComparingReferencesVisitor(final ProblemsHolder holder) {
+//            this.holder = holder;
+//        }
+//
+//        @Override
+//        public void visitReferenceExpression(PsiReferenceExpression psiReferenceExpression) {
+//        }
+//
+//
+//        @Override
+//        public void visitBinaryExpression(PsiBinaryExpression expression) {
+//            super.visitBinaryExpression(expression);
+//            IElementType opSign = expression.getOperationTokenType();
+//            if (opSign == JavaTokenType.EQEQ || opSign == JavaTokenType.NE) {
+//                PsiExpression lOperand = expression.getLOperand();
+//                PsiExpression rOperand = expression.getROperand();
+//                if (rOperand == null || isNullLiteral(lOperand) || isNullLiteral(rOperand)) return;
+//
+//                PsiType lType = lOperand.getType();
+//                PsiType rType = rOperand.getType();
+//
+//                if (isCheckedType(lType) || isCheckedType(rType)) {
+//                    holder.registerProblem(expression,
+//                            DESCRIPTION_TEMPLATE, myQuickFix);
+//                }
+//            }
+//        }
+//    }
 }

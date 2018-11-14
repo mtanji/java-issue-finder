@@ -28,19 +28,19 @@
     <!-- Add your extensions here -->
     <localInspection
       groupPath="Java" language="JAVA" shortName="HashtableInspection"
-      bundle="com.siyeh.InspectionGadgetsBundle"
-      key="boolean.parameter.display.name"
-      groupBundle="messages.InspectionsBundle"
-      groupKey="group.names.abstraction.issues"
+      bundle="messages.TrilogyBundle"
+      key="inspection.trilogy.hashtable"
+      groupBundle="messages.TrilogyBundle"
+      groupKey="group.names.trilogy.red.issues"
       enabledByDefault="true"
       level="ERROR"
       implementationClass="com.aurea.codeInspection.HashtableInspection" />
     <localInspection
       groupPath="Java" language="JAVA" shortName="DeclareAsBaseClassOrInterfaceInspection"
-      bundle="com.siyeh.InspectionGadgetsBundle"
-      key="boolean.parameter.display.name"
-      groupBundle="messages.InspectionsBundle"
-      groupKey="group.names.abstraction.issues"
+      bundle="messages.TrilogyBundle"
+      key="inspection.trilogy.concrete.type"
+      groupBundle="messages.TrilogyBundle"
+      groupKey="group.names.trilogy.red.issues"
       enabledByDefault="true"
       level="ERROR"
       implementationClass="com.aurea.codeInspection.DeclareAsBaseClassOrInterfaceInspection" />

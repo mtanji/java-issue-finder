@@ -1,5 +1,7 @@
 package com.aurea.codeInspection;
 
+import com.aurea.plugin.TrilogyBundle;
+import com.intellij.codeInspection.InspectionsBundle;
 import com.intellij.codeInspection.ui.MultipleCheckboxOptionsPanel;
 import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiClassType;
@@ -51,13 +53,19 @@ public class DeclareAsBaseClassOrInterfaceInspection extends BaseInspection {
                 "collection.declared.by.class.display.name");
     }
 
+    /**
+     * Build the message that is shown when hovering the code violation
+     * @param infos
+     * @return
+     */
     @Override
     @NotNull
     public String buildErrorString(Object... infos) {
         final String type = (String)infos[0];
-        return InspectionGadgetsBundle.message(
-                "collection.declared.by.class.problem.descriptor",
-                type);
+        return TrilogyBundle.message("inspection.trilogy.concrete.type.problem.descriptor");
+//        return InspectionGadgetsBundle.message(
+//                "collection.declared.by.class.problem.descriptor",
+//                type);
     }
 
     @Override

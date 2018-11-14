@@ -46,6 +46,10 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class HashtableInspection extends AbstractBaseJavaLocalInspectionTool {
+
+    // extends BaseJavaLocalInspectionTool
+    // check what behavior can have been changed due to using new abstract class
+
 // code from BaseJavaLocalInspectionTool
 //    @NotNull
 //    @Override
@@ -71,7 +75,6 @@ public class HashtableInspection extends AbstractBaseJavaLocalInspectionTool {
 
     @NotNull
     public String getDisplayName() {
-
         return "'==' or '!=' instead of 'equals()'";
     }
 
@@ -181,18 +184,18 @@ public class HashtableInspection extends AbstractBaseJavaLocalInspectionTool {
         }
     }
 
-    public JComponent createOptionsPanel() {
-        JPanel panel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        final JTextField checkedClasses = new JTextField(CHECKED_CLASSES);
-        checkedClasses.getDocument().addDocumentListener(new DocumentAdapter() {
-            public void textChanged(DocumentEvent event) {
-                CHECKED_CLASSES = checkedClasses.getText();
-            }
-        });
-
-        panel.add(checkedClasses);
-        return panel;
-    }
+//    public JComponent createOptionsPanel() {
+//        JPanel panel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+//        final JTextField checkedClasses = new JTextField(CHECKED_CLASSES);
+//        checkedClasses.getDocument().addDocumentListener(new DocumentAdapter() {
+//            public void textChanged(DocumentEvent event) {
+//                CHECKED_CLASSES = checkedClasses.getText();
+//            }
+//        });
+//
+//        panel.add(checkedClasses);
+//        return panel;
+//    }
 
     public boolean isEnabledByDefault() {
         return true;

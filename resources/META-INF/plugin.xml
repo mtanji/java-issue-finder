@@ -26,6 +26,8 @@
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
+    <inspectionToolProvider implementation="com.aurea.codeInspection.ComparingReferencesProvider"/>
+
     <localInspection
       groupPath="Java" language="JAVA" shortName="HashtableInspection"
       bundle="messages.TrilogyBundle"

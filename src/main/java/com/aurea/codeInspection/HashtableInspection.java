@@ -66,27 +66,27 @@ public class HashtableInspection extends AbstractBaseJavaLocalInspectionTool {
 
     private final LocalQuickFix myQuickFix = new MyQuickFix();
 
-    @SuppressWarnings({"WeakerAccess"})
-    @NonNls
-    public String CHECKED_CLASSES = "java.lang.String;java.util.Date";
+//    @SuppressWarnings({"WeakerAccess"})
+//    @NonNls
+//    public String CHECKED_CLASSES = "java.lang.String;java.util.Date";
     @NonNls
     private static final String DESCRIPTION_TEMPLATE = "Using #ref";
 //            InspectionsBundle.message("inspection.comparing.references.problem.descriptor");
 
-    @NotNull
-    public String getDisplayName() {
-        return "'==' or '!=' instead of 'equals()'";
-    }
-
-    @NotNull
-    public String getGroupDisplayName() {
-        return GroupNames.BUGS_GROUP_NAME;
-    }
-
-    @NotNull
-    public String getShortName() {
-        return "ComparingReferences";
-    }
+//    @NotNull
+//    public String getDisplayName() {
+//        return "'==' or '!=' instead of 'equals()'";
+//    }
+//
+//    @NotNull
+//    public String getGroupDisplayName() {
+//        return GroupNames.BUGS_GROUP_NAME;
+//    }
+//
+//    @NotNull
+//    public String getShortName() {
+//        return "ComparingReferences";
+//    }
 
 //    private boolean isCheckedType(PsiType type) {
 //        if (!(type instanceof PsiClassType)) return false;

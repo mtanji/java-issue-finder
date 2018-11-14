@@ -1,6 +1,7 @@
 package com.aurea.sample;
 
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -12,6 +13,15 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
+
+        Ability ab = new Person("xx");
+        Person p = new Person("ss");
+
+        Person[] lp = { new Person("a"), new Person("b") };
+        System.out.println(lp);// must know that println is from a PrintStream and does call toString()
+
+        ArrayList<String> list = new ArrayList<>();
+        list.add("maria");
 
         List<String> names1 = new ArrayList<>();
         names1.add("name1");
@@ -31,5 +41,19 @@ public class Main {
 
         Hashtable a = new Hashtable();
 
+    }
+
+    static class Person implements Ability {
+        String name;
+        Person(String n) {
+            name = n;
+        }
+        public void doesFast() {
+
+        }
+    }
+
+    interface Ability {
+        void doesFast();
     }
 }

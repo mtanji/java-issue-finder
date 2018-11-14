@@ -27,7 +27,7 @@
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
     <localInspection
-      groupPath="Java" language="JAVA" shortName="BooleanParameter2"
+      groupPath="Java" language="JAVA" shortName="HashtableInspection"
       bundle="com.siyeh.InspectionGadgetsBundle"
       key="boolean.parameter.display.name"
       groupBundle="messages.InspectionsBundle"
@@ -35,6 +35,15 @@
       enabledByDefault="true"
       level="ERROR"
       implementationClass="com.aurea.codeInspection.HashtableInspection" />
+    <localInspection
+      groupPath="Java" language="JAVA" shortName="DeclareAsBaseClassOrInterfaceInspection"
+      bundle="com.siyeh.InspectionGadgetsBundle"
+      key="boolean.parameter.display.name"
+      groupBundle="messages.InspectionsBundle"
+      groupKey="group.names.abstraction.issues"
+      enabledByDefault="true"
+      level="ERROR"
+      implementationClass="com.aurea.codeInspection.DeclareAsBaseClassOrInterfaceInspection" />
   </extensions>
 
   <actions>

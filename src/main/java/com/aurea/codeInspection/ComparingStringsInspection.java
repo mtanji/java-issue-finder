@@ -19,13 +19,13 @@ public class ComparingStringsInspection extends AbstractBaseJavaLocalInspectionT
     @NotNull
     @Override
     public PsiElementVisitor buildVisitor(@NotNull final ProblemsHolder holder, boolean isOnTheFly) {
-        return new CompatingStringVisitor(holder);
+        return new ComparingStringVisitor(holder);
     }
 
-    class CompatingStringVisitor extends JavaElementVisitor {
+    class ComparingStringVisitor extends JavaElementVisitor {
 
         private final ProblemsHolder holder;
-        CompatingStringVisitor(final ProblemsHolder holder) {
+        ComparingStringVisitor(final ProblemsHolder holder) {
             this.holder = holder;
         }
 

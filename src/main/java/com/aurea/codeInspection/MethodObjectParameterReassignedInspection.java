@@ -65,9 +65,9 @@ public class MethodObjectParameterReassignedInspection extends AbstractBaseJavaL
             final PsiParameter parameter = (PsiParameter)variable;
             return !isApplicable(parameter) ? null : parameter;
         }
-    }
 
-    private boolean isApplicable(PsiParameter parameter) {
-        return parameter.getDeclarationScope() instanceof PsiMethod;
+        private boolean isApplicable(PsiParameter parameter) {
+            return parameter.getDeclarationScope() instanceof PsiMethod;
+        }
     }
 }

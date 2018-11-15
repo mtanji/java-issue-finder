@@ -27,7 +27,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class OptionalAssignedWithNullInspection extends AbstractBaseJavaLocalInspectionTool {
     @NonNls
-    private static final String DESCRIPTION_TEMPLATE = "Null is used for ''Optional'' type in {0}";
+    private static final String DESCRIPTION_TEMPLATE = "Null is used for ''Optional'' type #loc";
 
     @NotNull
     @Override
@@ -43,27 +43,34 @@ public class OptionalAssignedWithNullInspection extends AbstractBaseJavaLocalIns
 
         @Override
         public void visitAssignmentExpression(PsiAssignmentExpression expression) {
-            checkNulls(expression.getType(), expression.getRExpression(),
-                    InspectionsBundle.message("inspection.null.value.for.optional.context.assignment"));
+            checkNulls(expression.getType(), expression.getRExpression());
         }
 
         @Override
         public void visitMethodCallExpression(PsiMethodCallExpression call) {
             PsiExpression[] args = call.getArgumentList().getExpressions();
-            if (args.length == 0) return;
+            if (args.length == 0) {
+                return;
+            }
             PsiMethod method = call.resolveMethod();
-            if (method == null) return;
+            if (method == null) {
+                return;
+            }
             PsiParameter[] parameters = method.getParameterList().getParameters();
-            if (parameters.length > args.length) return;
+            if (parameters.length > args.length) {
+                return;
+            }
             boolean varArgCall = MethodCallUtils.isVarArgCall(call);
-            if (!varArgCall && parameters.length < args.length) return;
+            if (!varArgCall && parameters.length < args.length) {
+                return;
+            }
             for (int i = 0; i < args.length; i++) {
                 PsiParameter parameter = parameters[Math.min(parameters.length - 1, i)];
                 PsiType type = parameter.getType();
                 if (varArgCall && i >= parameters.length - 1 && type instanceof PsiEllipsisType) {
                     type = ((PsiEllipsisType)type).getComponentType();
                 }
-                checkNulls(type, args[i], InspectionsBundle.message("inspection.null.value.for.optional.context.parameter"));
+                checkNulls(type, args[i]);
             }
         }
 
@@ -71,31 +78,28 @@ public class OptionalAssignedWithNullInspection extends AbstractBaseJavaLocalIns
         public void visitLambdaExpression(PsiLambdaExpression lambda) {
             PsiElement body = lambda.getBody();
             if (body instanceof PsiExpression) {
-                checkNulls(LambdaUtil.getFunctionalInterfaceReturnType(lambda), (PsiExpression)body,
-                        InspectionsBundle.message("inspection.null.value.for.optional.context.lambda"));
+                checkNulls(LambdaUtil.getFunctionalInterfaceReturnType(lambda), (PsiExpression)body);
             }
         }
 
         @Override
         public void visitReturnStatement(PsiReturnStatement statement) {
-            checkNulls(PsiTypesUtil.getMethodReturnType(statement), statement.getReturnValue(),
-                    InspectionsBundle.message("inspection.null.value.for.optional.context.return"));
+            checkNulls(PsiTypesUtil.getMethodReturnType(statement), statement.getReturnValue());
         }
 
         @Override
         public void visitVariable(PsiVariable variable) {
-            checkNulls(variable.getType(), variable.getInitializer(),
-                    InspectionsBundle.message("inspection.null.value.for.optional.context.declaration"));
+            checkNulls(variable.getType(), variable.getInitializer());
         }
 
-        private void checkNulls(PsiType type, PsiExpression expression, String declaration) {
+        private void checkNulls(PsiType type, PsiExpression expression) {
             if (expression != null && TypeUtils.isOptional(type)) {
                 ExpressionUtils.nonStructuralChildren(expression).filter(ExpressionUtils::isNullLiteral)
-                        .forEach(nullLiteral -> register(nullLiteral, (PsiClassType)type, declaration));
+                        .forEach(nullLiteral -> register(nullLiteral));
             }
         }
 
-        private void register(PsiExpression expression, PsiClassType type, String contextName) {
+        private void register(PsiExpression expression) {
             holder.registerProblem(expression, DESCRIPTION_TEMPLATE);
         }
     }

@@ -34,16 +34,19 @@ import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 
 public class ComparingReferencesInspection extends BaseJavaLocalInspectionTool {
+
     private static final Logger LOG = Logger.getInstance("#com.intellij.codeInspection.ComparingReferencesInspection");
-
-    private final LocalQuickFix myQuickFix = new MyQuickFix();
-
-    @SuppressWarnings({"WeakerAccess"})
-    @NonNls
-    public String CHECKED_CLASSES = "java.lang.String;java.util.Date";
     @NonNls
     private static final String DESCRIPTION_TEMPLATE =
             InspectionsBundle.message("inspection.comparing.references.problem.descriptor");
+    private final LocalQuickFix myQuickFix = new MyQuickFix();
+    @SuppressWarnings({"WeakerAccess"})
+    @NonNls
+    public String CHECKED_CLASSES = "java.lang.String;java.util.Date";
+
+    private static boolean isNullLiteral(PsiExpression expr) {
+        return expr instanceof PsiLiteralExpression && "null".equals(expr.getText());
+    }
 
     @NotNull
     public String getDisplayName() {
@@ -62,12 +65,16 @@ public class ComparingReferencesInspection extends BaseJavaLocalInspectionTool {
     }
 
     private boolean isCheckedType(PsiType type) {
-        if (!(type instanceof PsiClassType)) return false;
+        if (!(type instanceof PsiClassType)) {
+            return false;
+        }
 
         StringTokenizer tokenizer = new StringTokenizer(CHECKED_CLASSES, ";");
         while (tokenizer.hasMoreTokens()) {
             String className = tokenizer.nextToken();
-            if (type.equalsToText(className)) return true;
+            if (type.equalsToText(className)) {
+                return true;
+            }
         }
 
         return false;
@@ -90,7 +97,9 @@ public class ComparingReferencesInspection extends BaseJavaLocalInspectionTool {
                 if (opSign == JavaTokenType.EQEQ || opSign == JavaTokenType.NE) {
                     PsiExpression lOperand = expression.getLOperand();
                     PsiExpression rOperand = expression.getROperand();
-                    if (rOperand == null || isNullLiteral(lOperand) || isNullLiteral(rOperand)) return;
+                    if (rOperand == null || isNullLiteral(lOperand) || isNullLiteral(rOperand)) {
+                        return;
+                    }
 
                     PsiType lType = lOperand.getType();
                     PsiType rType = rOperand.getType();
@@ -104,11 +113,25 @@ public class ComparingReferencesInspection extends BaseJavaLocalInspectionTool {
         };
     }
 
-    private static boolean isNullLiteral(PsiExpression expr) {
-        return expr instanceof PsiLiteralExpression && "null".equals(expr.getText());
+    public JComponent createOptionsPanel() {
+        JPanel panel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        final JTextField checkedClasses = new JTextField(CHECKED_CLASSES);
+        checkedClasses.getDocument().addDocumentListener(new DocumentAdapter() {
+            public void textChanged(DocumentEvent event) {
+                CHECKED_CLASSES = checkedClasses.getText();
+            }
+        });
+
+        panel.add(checkedClasses);
+        return panel;
+    }
+
+    public boolean isEnabledByDefault() {
+        return true;
     }
 
     private static class MyQuickFix implements LocalQuickFix {
+
         @NotNull
         public String getName() {
             // The test (see the TestThisPlugin class) uses this string to identify the quick fix action.
@@ -122,8 +145,9 @@ public class ComparingReferencesInspection extends BaseJavaLocalInspectionTool {
                 IElementType opSign = binaryExpression.getOperationTokenType();
                 PsiExpression lExpr = binaryExpression.getLOperand();
                 PsiExpression rExpr = binaryExpression.getROperand();
-                if (rExpr == null)
+                if (rExpr == null) {
                     return;
+                }
 
                 PsiElementFactory factory = JavaPsiFacade.getInstance(project).getElementFactory();
                 PsiMethodCallExpression equalsCall =
@@ -148,22 +172,5 @@ public class ComparingReferencesInspection extends BaseJavaLocalInspectionTool {
         public String getFamilyName() {
             return getName();
         }
-    }
-
-    public JComponent createOptionsPanel() {
-        JPanel panel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        final JTextField checkedClasses = new JTextField(CHECKED_CLASSES);
-        checkedClasses.getDocument().addDocumentListener(new DocumentAdapter() {
-            public void textChanged(DocumentEvent event) {
-                CHECKED_CLASSES = checkedClasses.getText();
-            }
-        });
-
-        panel.add(checkedClasses);
-        return panel;
-    }
-
-    public boolean isEnabledByDefault() {
-        return true;
     }
 }

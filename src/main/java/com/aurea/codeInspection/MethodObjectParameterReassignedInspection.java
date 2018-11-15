@@ -58,12 +58,12 @@ public class MethodObjectParameterReassignedInspection extends AbstractBaseJavaL
             if (!(expression instanceof PsiReferenceExpression)) {
                 return null;
             }
-            final PsiReferenceExpression referenceExpression = (PsiReferenceExpression)expression;
+            final PsiReferenceExpression referenceExpression = (PsiReferenceExpression) expression;
             final PsiElement variable = referenceExpression.resolve();
             if (!(variable instanceof PsiParameter)) {
                 return null;
             }
-            final PsiParameter parameter = (PsiParameter)variable;
+            final PsiParameter parameter = (PsiParameter) variable;
             return !isApplicable(parameter) ? null : parameter;
         }
 

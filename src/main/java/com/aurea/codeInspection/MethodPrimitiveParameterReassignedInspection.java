@@ -29,6 +29,10 @@ public class MethodPrimitiveParameterReassignedInspection extends AbstractBaseJa
         return new MethodPrimitiveParameterReassignedVisitor(holder);
     }
 
+    private boolean isApplicable(PsiParameter parameter) {
+        return parameter.getDeclarationScope() instanceof PsiMethod;
+    }
+
     class MethodPrimitiveParameterReassignedVisitor extends JavaElementVisitor {
 
         @NonNls
@@ -83,17 +87,13 @@ public class MethodPrimitiveParameterReassignedInspection extends AbstractBaseJa
             if (!(expression instanceof PsiReferenceExpression)) {
                 return null;
             }
-            final PsiReferenceExpression referenceExpression = (PsiReferenceExpression)expression;
+            final PsiReferenceExpression referenceExpression = (PsiReferenceExpression) expression;
             final PsiElement variable = referenceExpression.resolve();
             if (!(variable instanceof PsiParameter)) {
                 return null;
             }
-            final PsiParameter parameter = (PsiParameter)variable;
+            final PsiParameter parameter = (PsiParameter) variable;
             return !isApplicable(parameter) ? null : parameter;
         }
-    }
-
-    private boolean isApplicable(PsiParameter parameter) {
-        return parameter.getDeclarationScope() instanceof PsiMethod;
     }
 }

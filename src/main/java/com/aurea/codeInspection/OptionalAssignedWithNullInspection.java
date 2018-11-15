@@ -2,12 +2,10 @@ package com.aurea.codeInspection;
 
 import com.aurea.plugin.TrilogyBundle;
 import com.intellij.codeInspection.AbstractBaseJavaLocalInspectionTool;
-import com.intellij.codeInspection.InspectionsBundle;
 import com.intellij.codeInspection.ProblemsHolder;
 import com.intellij.psi.JavaElementVisitor;
 import com.intellij.psi.LambdaUtil;
 import com.intellij.psi.PsiAssignmentExpression;
-import com.intellij.psi.PsiClassType;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.PsiEllipsisType;
@@ -71,7 +69,7 @@ public class OptionalAssignedWithNullInspection extends AbstractBaseJavaLocalIns
                 PsiParameter parameter = parameters[Math.min(parameters.length - 1, i)];
                 PsiType type = parameter.getType();
                 if (varArgCall && i >= parameters.length - 1 && type instanceof PsiEllipsisType) {
-                    type = ((PsiEllipsisType)type).getComponentType();
+                    type = ((PsiEllipsisType) type).getComponentType();
                 }
                 checkNulls(type, args[i]);
             }
@@ -81,7 +79,7 @@ public class OptionalAssignedWithNullInspection extends AbstractBaseJavaLocalIns
         public void visitLambdaExpression(PsiLambdaExpression lambda) {
             PsiElement body = lambda.getBody();
             if (body instanceof PsiExpression) {
-                checkNulls(LambdaUtil.getFunctionalInterfaceReturnType(lambda), (PsiExpression)body);
+                checkNulls(LambdaUtil.getFunctionalInterfaceReturnType(lambda), (PsiExpression) body);
             }
         }
 

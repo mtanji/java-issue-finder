@@ -56,7 +56,7 @@ public class NullAssignmentInspection extends AbstractBaseJavaLocalInspectionToo
                 return;
             }
             final PsiAssignmentExpression assignmentExpression =
-                    (PsiAssignmentExpression)parent;
+                    (PsiAssignmentExpression) parent;
             final PsiExpression lhs = ParenthesesUtils.stripParentheses(
                     assignmentExpression.getLExpression());
             if (lhs == null || isReferenceToNullableVariable(lhs)) {
@@ -71,12 +71,12 @@ public class NullAssignmentInspection extends AbstractBaseJavaLocalInspectionToo
                 return false;
             }
             final PsiReferenceExpression referenceExpression =
-                    (PsiReferenceExpression)lhs;
+                    (PsiReferenceExpression) lhs;
             final PsiElement element = referenceExpression.resolve();
             if (!(element instanceof PsiVariable)) {
                 return false;
             }
-            final PsiVariable variable = (PsiVariable)element;
+            final PsiVariable variable = (PsiVariable) element;
             return NullableNotNullManager.isNullable(variable);
         }
     }

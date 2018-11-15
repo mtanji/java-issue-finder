@@ -8,11 +8,9 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.editor.CaretModel;
 import com.intellij.openapi.editor.Editor;
-import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiFile;
 import java.util.ArrayList;
 import java.util.Hashtable;
-import org.jetbrains.uast.java.JavaUClass;
 
 public class SearchAction extends AnAction {
 
@@ -27,7 +25,7 @@ public class SearchAction extends AnAction {
 
 //        PsiClass psic = new JavaUClass();
 
-        if(true) {
+        if (true) {
             System.out.println("is true");
         } else {
             System.out.println("is false");
@@ -48,7 +46,7 @@ public class SearchAction extends AnAction {
 
         ArrayList<String> jj = new ArrayList<>();
         jj.add("asdf");
-        for(String x : jj) {
+        for (String x : jj) {
             System.out.println(x);
         }
 
@@ -84,7 +82,8 @@ public class SearchAction extends AnAction {
             System.out.println(new StringBuilder().append("a").append(i).toString());
         }
     }
-// TODO dddd
+
+    // TODO dddd
     @Override
     public void update(AnActionEvent e) {
         Editor editor = e.getRequiredData(CommonDataKeys.EDITOR);

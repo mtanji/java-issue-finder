@@ -8,11 +8,12 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.PropertyKey;
 
 public class TrilogyBundle {
-    private static Reference<ResourceBundle> ourBundle;
 
     public static final String BUNDLE = "messages.TrilogyBundle";
+    private static Reference<ResourceBundle> ourBundle;
 
-    private TrilogyBundle() { }
+    private TrilogyBundle() {
+    }
 
     public static String message(@NotNull @PropertyKey(resourceBundle = BUNDLE) String key, @NotNull Object... params) {
         return CommonBundle.message(getBundle(), key, params);

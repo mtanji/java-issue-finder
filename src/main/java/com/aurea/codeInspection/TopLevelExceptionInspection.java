@@ -15,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class TopLevelExceptionInspection extends AbstractBaseJavaLocalInspectionTool {
     @NonNls
-    private static final String DESCRIPTION_TEMPLATE ="Prohibited exception ''{0}'' thrown #loc";
+    private static final String DESCRIPTION_TEMPLATE ="Prohibited exception thrown '#ref' #loc";
 
     final Set<String> exceptions =
         new HashSet<>(Arrays.asList(
@@ -49,7 +49,7 @@ public class TopLevelExceptionInspection extends AbstractBaseJavaLocalInspection
             }
             final String text = type.getCanonicalText();
             if (exceptions.contains(text)) {
-                holder.registerProblem(statement, DESCRIPTION_TEMPLATE);
+                holder.registerProblem(statement.getException(), DESCRIPTION_TEMPLATE);
             }
         }
     }

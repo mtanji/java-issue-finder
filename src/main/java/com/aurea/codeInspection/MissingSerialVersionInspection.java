@@ -49,7 +49,7 @@ public class MissingSerialVersionInspection extends AbstractBaseJavaLocalInspect
             if (SerializationUtils.hasWriteReplace(aClass)) {
                 return;
             }
-            holder.registerProblem(aClass, DESCRIPTION_TEMPLATE);
+            holder.registerProblem(aClass.getNameIdentifier(), DESCRIPTION_TEMPLATE);
         }
     }
 }

@@ -20,7 +20,7 @@ import org.jetbrains.annotations.Nullable;
 public class RawTypesInspection extends AbstractBaseJavaLocalInspectionTool {
 
     @NonNls
-    private static final String DESCRIPTION_TEMPLATE ="Change type of {0} to {1}";
+    private static final String DESCRIPTION_TEMPLATE ="Add generics to #ref, instead of declaring it with raw type #loc";
 
     @NotNull
     @Override

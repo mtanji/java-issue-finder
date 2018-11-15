@@ -1,5 +1,6 @@
 package com.aurea.codeInspection;
 
+import com.aurea.plugin.TrilogyBundle;
 import com.intellij.codeInspection.AbstractBaseJavaLocalInspectionTool;
 import com.intellij.codeInspection.ProblemsHolder;
 import com.intellij.psi.JavaElementVisitor;
@@ -11,9 +12,6 @@ import org.jetbrains.annotations.NotNull;
 
 public class EmptyTryBlockInspection extends AbstractBaseJavaLocalInspectionTool {
 
-    @NonNls
-    private static final String DESCRIPTION_TEMPLATE = "Empty Try block: #ref";
-
     @NotNull
     @Override
     public PsiElementVisitor buildVisitor(@NotNull final ProblemsHolder holder, boolean isOnTheFly) {
@@ -22,7 +20,10 @@ public class EmptyTryBlockInspection extends AbstractBaseJavaLocalInspectionTool
 
     class EmptyTryBlockVisitor extends JavaElementVisitor {
 
+        @NonNls
+        private final String DESCRIPTION_TEMPLATE = TrilogyBundle.message("inspection.trilogy.empty.try.block.problem.description");
         private final ProblemsHolder holder;
+
         EmptyTryBlockVisitor(final ProblemsHolder holder) {
             this.holder = holder;
         }

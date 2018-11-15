@@ -1,5 +1,6 @@
 package com.aurea.codeInspection;
 
+import com.aurea.plugin.TrilogyBundle;
 import com.intellij.codeInspection.AbstractBaseJavaLocalInspectionTool;
 import com.intellij.codeInspection.ProblemsHolder;
 import com.intellij.psi.JavaElementVisitor;
@@ -17,9 +18,6 @@ import org.jetbrains.annotations.Nullable;
 
 public class HashtableInspection extends AbstractBaseJavaLocalInspectionTool {
 
-    @NonNls
-    private static final String DESCRIPTION_TEMPLATE = "Using #ref #loc";
-
     @NotNull
     @Override
     public PsiElementVisitor buildVisitor(@NotNull final ProblemsHolder holder, boolean isOnTheFly) {
@@ -28,6 +26,8 @@ public class HashtableInspection extends AbstractBaseJavaLocalInspectionTool {
 
     class HashtableVisitor extends JavaElementVisitor {
 
+        @NonNls
+        private final String DESCRIPTION_TEMPLATE = TrilogyBundle.message("inspection.trilogy.hashtable.problem.description");
         private final ProblemsHolder holder;
 
         HashtableVisitor(final ProblemsHolder holder) {

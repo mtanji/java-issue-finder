@@ -1,5 +1,6 @@
 package com.aurea.codeInspection;
 
+import com.aurea.plugin.TrilogyBundle;
 import com.intellij.codeInspection.AbstractBaseJavaLocalInspectionTool;
 import com.intellij.codeInspection.InspectionsBundle;
 import com.intellij.codeInspection.ProblemsHolder;
@@ -26,8 +27,6 @@ import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 
 public class OptionalAssignedWithNullInspection extends AbstractBaseJavaLocalInspectionTool {
-    @NonNls
-    private static final String DESCRIPTION_TEMPLATE = "Null is used for ''Optional'' type #loc";
 
     @NotNull
     @Override
@@ -36,7 +35,11 @@ public class OptionalAssignedWithNullInspection extends AbstractBaseJavaLocalIns
     }
 
     static class OptionalAssignedWithNullVisitor extends JavaElementVisitor {
+
+        @NonNls
+        private final String DESCRIPTION_TEMPLATE = TrilogyBundle.message("inspection.trilogy.optional.assigned.with.null.problem.description");
         private final ProblemsHolder holder;
+
         OptionalAssignedWithNullVisitor(final ProblemsHolder holder) {
             this.holder = holder;
         }

@@ -1,5 +1,6 @@
 package com.aurea.codeInspection;
 
+import com.aurea.plugin.TrilogyBundle;
 import com.intellij.codeInspection.AbstractBaseJavaLocalInspectionTool;
 import com.intellij.codeInspection.ProblemsHolder;
 import com.intellij.psi.JavaElementVisitor;
@@ -14,14 +15,6 @@ import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 
 public class TopLevelExceptionInspection extends AbstractBaseJavaLocalInspectionTool {
-    @NonNls
-    private static final String DESCRIPTION_TEMPLATE ="Prohibited exception thrown '#ref' #loc";
-
-    final Set<String> exceptions =
-        new HashSet<>(Arrays.asList(
-                    "java.lang.Throwable",
-                    "java.lang.Exception"
-            ));
 
     @NotNull
     @Override
@@ -31,7 +24,15 @@ public class TopLevelExceptionInspection extends AbstractBaseJavaLocalInspection
 
     private class TopLevelExceptionVisitor extends JavaElementVisitor {
 
+        @NonNls
+        private final String DESCRIPTION_TEMPLATE = TrilogyBundle.message("inspection.trilogy.throws.toplevel.exception.problem.description");
+        private final Set<String> exceptions =
+                new HashSet<>(Arrays.asList(
+                        "java.lang.Throwable",
+                        "java.lang.Exception"
+                ));
         private final ProblemsHolder holder;
+
         TopLevelExceptionVisitor(final ProblemsHolder holder) {
             this.holder = holder;
         }

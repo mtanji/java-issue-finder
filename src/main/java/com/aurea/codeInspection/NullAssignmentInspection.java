@@ -1,5 +1,6 @@
 package com.aurea.codeInspection;
 
+import com.aurea.plugin.TrilogyBundle;
 import com.intellij.codeInsight.NullableNotNullManager;
 import com.intellij.codeInspection.AbstractBaseJavaLocalInspectionTool;
 import com.intellij.codeInspection.ProblemsHolder;
@@ -21,9 +22,6 @@ import org.jetbrains.annotations.NotNull;
 
 public class NullAssignmentInspection extends AbstractBaseJavaLocalInspectionTool {
 
-    @NonNls
-    private static final String DESCRIPTION_TEMPLATE = "'null' assigned to variable <code>#ref</code> #loc";
-
     @NotNull
     @Override
     public PsiElementVisitor buildVisitor(@NotNull final ProblemsHolder holder, boolean isOnTheFly) {
@@ -32,7 +30,10 @@ public class NullAssignmentInspection extends AbstractBaseJavaLocalInspectionToo
 
     private class NullAssignmentVisitor extends JavaElementVisitor {
 
+        @NonNls
+        private final String DESCRIPTION_TEMPLATE = TrilogyBundle.message("inspection.trilogy.null.assignment.problem.description");
         private final ProblemsHolder holder;
+
         NullAssignmentVisitor(final ProblemsHolder holder) {
             this.holder = holder;
         }

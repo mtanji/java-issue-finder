@@ -1,5 +1,6 @@
 package com.aurea.codeInspection;
 
+import com.aurea.plugin.TrilogyBundle;
 import com.intellij.codeInspection.AbstractBaseJavaLocalInspectionTool;
 import com.intellij.codeInspection.ProblemsHolder;
 import com.intellij.psi.JavaElementVisitor;
@@ -19,9 +20,6 @@ import org.jetbrains.annotations.Nullable;
 
 public class MethodObjectParameterReassignedInspection extends AbstractBaseJavaLocalInspectionTool {
 
-    @NonNls
-    private static final String DESCRIPTION_TEMPLATE ="Assignment to method object parameter <code>#ref</code> #loc";
-
     @NotNull
     @Override
     public PsiElementVisitor buildVisitor(@NotNull final ProblemsHolder holder, boolean isOnTheFly) {
@@ -30,7 +28,10 @@ public class MethodObjectParameterReassignedInspection extends AbstractBaseJavaL
 
     class MethodObjectParameterReassignedVisitor extends JavaElementVisitor {
 
+        @NonNls
+        private final String DESCRIPTION_TEMPLATE = TrilogyBundle.message("inspection.trilogy.method.object.parameter.reassigned.problem.description");
         private final ProblemsHolder holder;
+
         MethodObjectParameterReassignedVisitor(final ProblemsHolder holder) {
             this.holder = holder;
         }

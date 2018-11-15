@@ -1,5 +1,6 @@
 package com.aurea.codeInspection;
 
+import com.aurea.plugin.TrilogyBundle;
 import com.intellij.codeInspection.AbstractBaseJavaLocalInspectionTool;
 import com.intellij.codeInspection.ProblemsHolder;
 import com.intellij.psi.JavaElementVisitor;
@@ -15,9 +16,6 @@ import org.jetbrains.annotations.NotNull;
 
 public class MissingSerialVersionInspection extends AbstractBaseJavaLocalInspectionTool {
 
-    @NonNls
-    private static final String DESCRIPTION_TEMPLATE ="<code>#ref</code> does not define a 'serialVersionUID' field #loc";
-
     @NotNull
     @Override
     public PsiElementVisitor buildVisitor(@NotNull final ProblemsHolder holder, boolean isOnTheFly) {
@@ -26,7 +24,10 @@ public class MissingSerialVersionInspection extends AbstractBaseJavaLocalInspect
 
     private class MissingSerialVersionVisitor extends JavaElementVisitor {
 
+        @NonNls
+        private final String DESCRIPTION_TEMPLATE = TrilogyBundle.message("inspection.trilogy.missing.serial.version.problem.description");
         private final ProblemsHolder holder;
+
         MissingSerialVersionVisitor(final ProblemsHolder holder) {
             this.holder = holder;
         }

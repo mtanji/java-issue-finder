@@ -24,9 +24,6 @@ import org.jetbrains.annotations.NotNull;
 
 public class ExplicitCollectionInspection extends AbstractBaseJavaLocalInspectionTool {
 
-    @NonNls
-    private static final String DESCRIPTION_TEMPLATE = TrilogyBundle.message("inspection.trilogy.explicit.collection.types.problem.description");
-
     @NotNull
     @Override
     public PsiElementVisitor buildVisitor(@NotNull final ProblemsHolder holder, boolean isOnTheFly) {
@@ -35,7 +32,10 @@ public class ExplicitCollectionInspection extends AbstractBaseJavaLocalInspectio
 
     private class ExplicitCollectionVisitor extends JavaElementVisitor {
 
+        @NonNls
+        private final String DESCRIPTION_TEMPLATE = TrilogyBundle.message("inspection.trilogy.explicit.collection.types.problem.description");
         private final ProblemsHolder holder;
+
         ExplicitCollectionVisitor(final ProblemsHolder holder) {
             this.holder = holder;
         }

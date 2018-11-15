@@ -1,5 +1,6 @@
 package com.aurea.codeInspection;
 
+import com.aurea.plugin.TrilogyBundle;
 import com.intellij.codeInspection.AbstractBaseJavaLocalInspectionTool;
 import com.intellij.codeInspection.ProblemsHolder;
 import com.intellij.psi.JavaElementVisitor;
@@ -13,9 +14,6 @@ import org.jetbrains.annotations.NotNull;
 
 public class ComparingStringsInspection extends AbstractBaseJavaLocalInspectionTool {
 
-    @NonNls
-    private static final String DESCRIPTION_TEMPLATE = "String values are compared using <code>#ref</code>, not 'equals()' #loc";
-
     @NotNull
     @Override
     public PsiElementVisitor buildVisitor(@NotNull final ProblemsHolder holder, boolean isOnTheFly) {
@@ -24,7 +22,10 @@ public class ComparingStringsInspection extends AbstractBaseJavaLocalInspectionT
 
     class ComparingStringVisitor extends JavaElementVisitor {
 
+        @NonNls
+        private final String DESCRIPTION_TEMPLATE = TrilogyBundle.message("inspection.trilogy.comparing.strings.problem.description");;
         private final ProblemsHolder holder;
+
         ComparingStringVisitor(final ProblemsHolder holder) {
             this.holder = holder;
         }

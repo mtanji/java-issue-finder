@@ -55,6 +55,78 @@
       enabledByDefault="true"
       level="WARNING"
       implementationClass="com.aurea.codeInspection.EmptyTryBlockInspection" />
+    <localInspection
+      groupPath="Java" language="JAVA" shortName="ComparingStringsInspection"
+      bundle="messages.TrilogyBundle"
+      key="inspection.trilogy.comparing.strings"
+      groupBundle="messages.TrilogyBundle"
+      groupKey="group.names.trilogy.red.issues"
+      enabledByDefault="true"
+      level="ERROR"
+      implementationClass="com.aurea.codeInspection.ComparingStringsInspection" />
+    <localInspection
+      groupPath="Java" language="JAVA" shortName="MissingSerialVersionInspection"
+      bundle="messages.TrilogyBundle"
+      key="inspection.trilogy.missing.serial.version"
+      groupBundle="messages.TrilogyBundle"
+      groupKey="group.names.trilogy.severe.issues"
+      enabledByDefault="true"
+      level="ERROR"
+      implementationClass="com.aurea.codeInspection.MissingSerialVersionInspection" />
+    <localInspection
+      groupPath="Java" language="JAVA" shortName="TopLevelExceptionInspection"
+      bundle="messages.TrilogyBundle"
+      key="inspection.trilogy.throws.toplevel.exception"
+      groupBundle="messages.TrilogyBundle"
+      groupKey="group.names.trilogy.severe.issues"
+      enabledByDefault="true"
+      level="ERROR"
+      implementationClass="com.aurea.codeInspection.TopLevelExceptionInspection" />
+    <localInspection
+      groupPath="Java" language="JAVA" shortName="RawTypesInspection"
+      bundle="messages.TrilogyBundle"
+      key="inspection.trilogy.raw.types"
+      groupBundle="messages.TrilogyBundle"
+      groupKey="group.names.trilogy.severe.issues"
+      enabledByDefault="true"
+      level="ERROR"
+      implementationClass="com.aurea.codeInspection.RawTypesInspection" />
+    <localInspection
+      groupPath="Java" language="JAVA" shortName="OptionalAssignedWithNullInspection"
+      bundle="messages.TrilogyBundle"
+      key="inspection.trilogy.optional.assigned.with.null"
+      groupBundle="messages.TrilogyBundle"
+      groupKey="group.names.trilogy.severe.issues"
+      enabledByDefault="true"
+      level="ERROR"
+      implementationClass="com.aurea.codeInspection.OptionalAssignedWithNullInspection" />
+    <localInspection
+      groupPath="Java" language="JAVA" shortName="MethodPrimitiveParameterReassignedInspection"
+      bundle="messages.TrilogyBundle"
+      key="inspection.trilogy.method.primitive.parameter.reassigned"
+      groupBundle="messages.TrilogyBundle"
+      groupKey="group.names.trilogy.severe.issues"
+      enabledByDefault="true"
+      level="ERROR"
+      implementationClass="com.aurea.codeInspection.MethodPrimitiveParameterReassignedInspection" />
+    <localInspection
+      groupPath="Java" language="JAVA" shortName="MethodObjectParameterReassignedInspection"
+      bundle="messages.TrilogyBundle"
+      key="inspection.trilogy.method.object.parameter.reassigned"
+      groupBundle="messages.TrilogyBundle"
+      groupKey="group.names.trilogy.severe.issues"
+      enabledByDefault="true"
+      level="ERROR"
+      implementationClass="com.aurea.codeInspection.MethodObjectParameterReassignedInspection" />
+    <localInspection
+      groupPath="Java" language="JAVA" shortName="NullAssignmentInspection"
+      bundle="messages.TrilogyBundle"
+      key="inspection.trilogy.null.assignment"
+      groupBundle="messages.TrilogyBundle"
+      groupKey="group.names.trilogy.yellow.issues"
+      enabledByDefault="true"
+      level="WARNING"
+      implementationClass="com.aurea.codeInspection.NullAssignmentInspection" />
 
   </extensions>
 

@@ -1,0 +1,13 @@
+<html>
+<body>
+Here, the code is reassigning the method <strong>Object</strong> parameters and this is considered a bad practice. <br>
+Allowing this technique reduces the code readability as other developers will not be able to know whether <br>
+the <strong>original</strong> parameter reference is used or a reassigned reference without scanning the whole method. <br>
+In other words, it can be confusing for other developers that may want to use the <strong>original</strong> <br>
+parameter reference later in that method code, and may not notice that it has already been changed. <br>
+As a conclusion, a method should not reassign its <strong>Object</strong> parameters. <br>
+Consider using copies of <strong>Object</strong> parameters and those can be reassigned without being prone to confusions or ambiguities. <br>
+Eventually, for the copies, use suggestive names such as <strong>copyOfFoo</strong> or <strong>tempFoo</strong>. <br>
+More details: <a href="https://confluence.devfactory.com/x/CAnvEw">https://confluence.devfactory.com/x/CAnvEw</a>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<html>
+<body>
+Serializable classes should provide a <strong>serialVersionUID</strong> field explicitly. <br>
+If a class implements <strong>Serializable</strong> and does not declare <strong>serialVersionUID</strong> explicitly, <br>
+it is automatically generated depending on the class details such as fields and methods. <br>
+This fact is ok, but the version number is automatically generated and changes every time the class changes. <br>
+Therefore, two different versions of the same class are automatically rendered incompatible without any developer action. <br>
+Well, this may cause <strong>InvalidClassException</strong>.
+More details: <a href="https://confluence.devfactory.com/x/DiakEw">https://confluence.devfactory.com/x/DiakEw</a>
+</body>
+</html>

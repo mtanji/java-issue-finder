@@ -31,25 +31,16 @@
     <localInspection
       groupPath="Java" language="JAVA" shortName="HashtableInspection"
       bundle="messages.TrilogyBundle"
-      key="inspection.trilogy.hashtable"
+      key="inspection.trilogy.hashtable.display.name"
       groupBundle="messages.TrilogyBundle"
       groupKey="group.names.trilogy.red.issues"
       enabledByDefault="true"
       level="ERROR"
       implementationClass="com.aurea.codeInspection.HashtableInspection" />
     <localInspection
-      groupPath="Java" language="JAVA" shortName="DeclareAsBaseClassOrInterfaceInspection"
-      bundle="messages.TrilogyBundle"
-      key="inspection.trilogy.concrete.type"
-      groupBundle="messages.TrilogyBundle"
-      groupKey="group.names.trilogy.red.issues"
-      enabledByDefault="true"
-      level="ERROR"
-      implementationClass="com.aurea.codeInspection.DeclareAsBaseClassOrInterfaceInspection" />
-    <localInspection
       groupPath="Java" language="JAVA" shortName="EmptyTryBlockInspection"
       bundle="messages.TrilogyBundle"
-      key="inspection.trilogy.empty.try.block"
+      key="inspection.trilogy.empty.try.block.display.name"
       groupBundle="messages.TrilogyBundle"
       groupKey="group.names.trilogy.yellow.issues"
       enabledByDefault="true"
@@ -58,7 +49,7 @@
     <localInspection
       groupPath="Java" language="JAVA" shortName="ComparingStringsInspection"
       bundle="messages.TrilogyBundle"
-      key="inspection.trilogy.comparing.strings"
+      key="inspection.trilogy.comparing.strings.display.name"
       groupBundle="messages.TrilogyBundle"
       groupKey="group.names.trilogy.red.issues"
       enabledByDefault="true"
@@ -67,7 +58,7 @@
     <localInspection
       groupPath="Java" language="JAVA" shortName="MissingSerialVersionInspection"
       bundle="messages.TrilogyBundle"
-      key="inspection.trilogy.missing.serial.version"
+      key="inspection.trilogy.missing.serial.version.display.name"
       groupBundle="messages.TrilogyBundle"
       groupKey="group.names.trilogy.severe.issues"
       enabledByDefault="true"
@@ -76,7 +67,7 @@
     <localInspection
       groupPath="Java" language="JAVA" shortName="TopLevelExceptionInspection"
       bundle="messages.TrilogyBundle"
-      key="inspection.trilogy.throws.toplevel.exception"
+      key="inspection.trilogy.throws.toplevel.exception.display.name"
       groupBundle="messages.TrilogyBundle"
       groupKey="group.names.trilogy.severe.issues"
       enabledByDefault="true"
@@ -85,7 +76,7 @@
     <localInspection
       groupPath="Java" language="JAVA" shortName="RawTypesInspection"
       bundle="messages.TrilogyBundle"
-      key="inspection.trilogy.raw.types"
+      key="inspection.trilogy.raw.types.display.name"
       groupBundle="messages.TrilogyBundle"
       groupKey="group.names.trilogy.severe.issues"
       enabledByDefault="true"
@@ -94,7 +85,7 @@
     <localInspection
       groupPath="Java" language="JAVA" shortName="OptionalAssignedWithNullInspection"
       bundle="messages.TrilogyBundle"
-      key="inspection.trilogy.optional.assigned.with.null"
+      key="inspection.trilogy.optional.assigned.with.null.display.name"
       groupBundle="messages.TrilogyBundle"
       groupKey="group.names.trilogy.severe.issues"
       enabledByDefault="true"
@@ -103,7 +94,7 @@
     <localInspection
       groupPath="Java" language="JAVA" shortName="MethodPrimitiveParameterReassignedInspection"
       bundle="messages.TrilogyBundle"
-      key="inspection.trilogy.method.primitive.parameter.reassigned"
+      key="inspection.trilogy.method.primitive.parameter.reassigned.display.name"
       groupBundle="messages.TrilogyBundle"
       groupKey="group.names.trilogy.severe.issues"
       enabledByDefault="true"
@@ -112,7 +103,7 @@
     <localInspection
       groupPath="Java" language="JAVA" shortName="MethodObjectParameterReassignedInspection"
       bundle="messages.TrilogyBundle"
-      key="inspection.trilogy.method.object.parameter.reassigned"
+      key="inspection.trilogy.method.object.parameter.reassigned.display.name"
       groupBundle="messages.TrilogyBundle"
       groupKey="group.names.trilogy.severe.issues"
       enabledByDefault="true"
@@ -121,7 +112,7 @@
     <localInspection
       groupPath="Java" language="JAVA" shortName="NullAssignmentInspection"
       bundle="messages.TrilogyBundle"
-      key="inspection.trilogy.null.assignment"
+      key="inspection.trilogy.null.assignment.display.name"
       groupBundle="messages.TrilogyBundle"
       groupKey="group.names.trilogy.yellow.issues"
       enabledByDefault="true"
@@ -130,7 +121,7 @@
     <localInspection
       groupPath="Java" language="JAVA" shortName="VectorInspection"
       bundle="messages.TrilogyBundle"
-      key="inspection.trilogy.replace.vector"
+      key="inspection.trilogy.replace.vector.display.name"
       groupBundle="messages.TrilogyBundle"
       groupKey="group.names.trilogy.red.issues"
       enabledByDefault="true"
@@ -139,7 +130,7 @@
     <localInspection
       groupPath="Java" language="JAVA" shortName="ExplicitCollectionInspection"
       bundle="messages.TrilogyBundle"
-      key="inspection.trilogy.explicit.collection.types"
+      key="inspection.trilogy.explicit.collection.types.display.name"
       groupBundle="messages.TrilogyBundle"
       groupKey="group.names.trilogy.red.issues"
       enabledByDefault="true"

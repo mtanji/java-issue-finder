@@ -26,7 +26,7 @@
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
-    <inspectionToolProvider implementation="com.aurea.codeInspection.ComparingReferencesProvider"/>
+    <!--<inspectionToolProvider implementation="com.aurea.codeInspection.ComparingReferencesProvider"/>-->
 
     <localInspection
       groupPath="Java" language="JAVA" shortName="HashtableInspection"
@@ -127,6 +127,24 @@
       enabledByDefault="true"
       level="WARNING"
       implementationClass="com.aurea.codeInspection.NullAssignmentInspection" />
+    <localInspection
+      groupPath="Java" language="JAVA" shortName="VectorInspection"
+      bundle="messages.TrilogyBundle"
+      key="inspection.trilogy.replace.vector"
+      groupBundle="messages.TrilogyBundle"
+      groupKey="group.names.trilogy.red.issues"
+      enabledByDefault="true"
+      level="ERROR"
+      implementationClass="com.aurea.codeInspection.VectorInspection" />
+    <localInspection
+      groupPath="Java" language="JAVA" shortName="ExplicitCollectionInspection"
+      bundle="messages.TrilogyBundle"
+      key="inspection.trilogy.explicit.collection.types"
+      groupBundle="messages.TrilogyBundle"
+      groupKey="group.names.trilogy.red.issues"
+      enabledByDefault="true"
+      level="ERROR"
+      implementationClass="com.aurea.codeInspection.ExplicitCollectionInspection" />
 
   </extensions>
 

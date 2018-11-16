@@ -26,7 +26,7 @@ public class MethodObjectParameterReassignedInspection extends AbstractBaseJavaL
         return new MethodObjectParameterReassignedVisitor(holder);
     }
 
-    class MethodObjectParameterReassignedVisitor extends JavaElementVisitor {
+    static class MethodObjectParameterReassignedVisitor extends JavaElementVisitor {
 
         @NonNls
         private final String DESCRIPTION_TEMPLATE = TrilogyBundle.message("inspection.trilogy.method.object.parameter.reassigned.problem.description");

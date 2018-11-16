@@ -20,7 +20,7 @@ public class ComparingStringsInspection extends AbstractBaseJavaLocalInspectionT
         return new ComparingStringVisitor(holder);
     }
 
-    class ComparingStringVisitor extends JavaElementVisitor {
+    static class ComparingStringVisitor extends JavaElementVisitor {
 
         @NonNls
         private final String DESCRIPTION_TEMPLATE = TrilogyBundle.message("inspection.trilogy.comparing.strings.problem.description");

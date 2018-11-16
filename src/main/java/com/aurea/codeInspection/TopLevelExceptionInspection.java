@@ -22,7 +22,7 @@ public class TopLevelExceptionInspection extends AbstractBaseJavaLocalInspection
         return new TopLevelExceptionVisitor(holder);
     }
 
-    private class TopLevelExceptionVisitor extends JavaElementVisitor {
+    static class TopLevelExceptionVisitor extends JavaElementVisitor {
 
         @NonNls
         private final String DESCRIPTION_TEMPLATE = TrilogyBundle.message("inspection.trilogy.throws.toplevel.exception.problem.description");

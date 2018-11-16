@@ -24,7 +24,7 @@ public class HashtableInspection extends AbstractBaseJavaLocalInspectionTool {
         return new HashtableVisitor(holder);
     }
 
-    class HashtableVisitor extends JavaElementVisitor {
+    static class HashtableVisitor extends JavaElementVisitor {
 
         @NonNls
         private final String DESCRIPTION_TEMPLATE = TrilogyBundle.message("inspection.trilogy.hashtable.problem.description");

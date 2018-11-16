@@ -18,7 +18,7 @@ public class EmptyTryBlockInspection extends AbstractBaseJavaLocalInspectionTool
         return new EmptyTryBlockVisitor(holder);
     }
 
-    class EmptyTryBlockVisitor extends JavaElementVisitor {
+    static class EmptyTryBlockVisitor extends JavaElementVisitor {
 
         @NonNls
         private final String DESCRIPTION_TEMPLATE = TrilogyBundle.message("inspection.trilogy.empty.try.block.problem.description");

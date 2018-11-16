@@ -22,7 +22,7 @@ public class MissingSerialVersionInspection extends AbstractBaseJavaLocalInspect
         return new MissingSerialVersionVisitor(holder);
     }
 
-    private class MissingSerialVersionVisitor extends JavaElementVisitor {
+    static class MissingSerialVersionVisitor extends JavaElementVisitor {
 
         @NonNls
         private final String DESCRIPTION_TEMPLATE = TrilogyBundle.message("inspection.trilogy.missing.serial.version.problem.description");

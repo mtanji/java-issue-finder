@@ -28,7 +28,7 @@ public class NullAssignmentInspection extends AbstractBaseJavaLocalInspectionToo
         return new NullAssignmentVisitor(holder);
     }
 
-    private class NullAssignmentVisitor extends JavaElementVisitor {
+    static class NullAssignmentVisitor extends JavaElementVisitor {
 
         @NonNls
         private final String DESCRIPTION_TEMPLATE = TrilogyBundle.message("inspection.trilogy.null.assignment.problem.description");

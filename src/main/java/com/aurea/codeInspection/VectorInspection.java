@@ -24,7 +24,7 @@ public class VectorInspection extends AbstractBaseJavaLocalInspectionTool {
         return new VectorVisitor(holder);
     }
 
-    private class VectorVisitor extends JavaElementVisitor {
+    static class VectorVisitor extends JavaElementVisitor {
 
         @NonNls
         private final String DESCRIPTION_TEMPLATE = TrilogyBundle.message("inspection.trilogy.replace.vector.problem.description");

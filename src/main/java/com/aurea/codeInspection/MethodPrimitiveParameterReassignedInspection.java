@@ -29,11 +29,7 @@ public class MethodPrimitiveParameterReassignedInspection extends AbstractBaseJa
         return new MethodPrimitiveParameterReassignedVisitor(holder);
     }
 
-    private boolean isApplicable(PsiParameter parameter) {
-        return parameter.getDeclarationScope() instanceof PsiMethod;
-    }
-
-    class MethodPrimitiveParameterReassignedVisitor extends JavaElementVisitor {
+    static class MethodPrimitiveParameterReassignedVisitor extends JavaElementVisitor {
 
         @NonNls
         private final String DESCRIPTION_TEMPLATE = TrilogyBundle.message("inspection.trilogy.method.primitive.parameter.reassigned.problem.description");
@@ -94,6 +90,10 @@ public class MethodPrimitiveParameterReassignedInspection extends AbstractBaseJa
             }
             final PsiParameter parameter = (PsiParameter) variable;
             return !isApplicable(parameter) ? null : parameter;
+        }
+
+        private boolean isApplicable(PsiParameter parameter) {
+            return parameter.getDeclarationScope() instanceof PsiMethod;
         }
     }
 }

@@ -42,6 +42,7 @@ public class ExplicitCollectionInspection extends AbstractBaseJavaLocalInspectio
 
         @Override
         public void visitVariable(@NotNull PsiVariable variable) {
+            super.visitVariable(variable);
             final PsiType type = variable.getType();
             if (!CollectionUtils.isConcreteCollectionClass(type) || LibraryUtil.isOverrideOfLibraryMethodParameter(variable)) {
                 return;

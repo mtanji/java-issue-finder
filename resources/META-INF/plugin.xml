@@ -30,7 +30,7 @@
     <!--<inspectionToolProvider implementation="com.aurea.codeInspection.ComparingReferencesProvider"/>-->
 
     <localInspection
-      groupPath="Java" language="JAVA" shortName="HashtableInspection"
+      groupPath="Aurea" language="JAVA" shortName="HashtableInspection"
       bundle="messages.TrilogyBundle"
       key="inspection.trilogy.hashtable.display.name"
       groupBundle="messages.TrilogyBundle"
@@ -39,7 +39,7 @@
       level="ERROR"
       implementationClass="com.aurea.codeInspection.HashtableInspection" />
     <localInspection
-      groupPath="Java" language="JAVA" shortName="EmptyTryBlockInspection"
+      groupPath="Aurea" language="JAVA" shortName="EmptyTryBlockInspection"
       bundle="messages.TrilogyBundle"
       key="inspection.trilogy.empty.try.block.display.name"
       groupBundle="messages.TrilogyBundle"
@@ -48,7 +48,7 @@
       level="WARNING"
       implementationClass="com.aurea.codeInspection.EmptyTryBlockInspection" />
     <localInspection
-      groupPath="Java" language="JAVA" shortName="ComparingStringsInspection"
+      groupPath="Aurea" language="JAVA" shortName="ComparingStringsInspection"
       bundle="messages.TrilogyBundle"
       key="inspection.trilogy.comparing.strings.display.name"
       groupBundle="messages.TrilogyBundle"
@@ -57,7 +57,7 @@
       level="ERROR"
       implementationClass="com.aurea.codeInspection.ComparingStringsInspection" />
     <localInspection
-      groupPath="Java" language="JAVA" shortName="MissingSerialVersionInspection"
+      groupPath="Aurea" language="JAVA" shortName="MissingSerialVersionInspection"
       bundle="messages.TrilogyBundle"
       key="inspection.trilogy.missing.serial.version.display.name"
       groupBundle="messages.TrilogyBundle"
@@ -66,7 +66,7 @@
       level="ERROR"
       implementationClass="com.aurea.codeInspection.MissingSerialVersionInspection" />
     <localInspection
-      groupPath="Java" language="JAVA" shortName="TopLevelExceptionInspection"
+      groupPath="Aurea" language="JAVA" shortName="TopLevelExceptionInspection"
       bundle="messages.TrilogyBundle"
       key="inspection.trilogy.throws.toplevel.exception.display.name"
       groupBundle="messages.TrilogyBundle"
@@ -75,7 +75,7 @@
       level="ERROR"
       implementationClass="com.aurea.codeInspection.TopLevelExceptionInspection" />
     <localInspection
-      groupPath="Java" language="JAVA" shortName="RawTypesInspection"
+      groupPath="Aurea" language="JAVA" shortName="RawTypesInspection"
       bundle="messages.TrilogyBundle"
       key="inspection.trilogy.raw.types.display.name"
       groupBundle="messages.TrilogyBundle"
@@ -84,7 +84,7 @@
       level="ERROR"
       implementationClass="com.aurea.codeInspection.RawTypesInspection" />
     <localInspection
-      groupPath="Java" language="JAVA" shortName="OptionalAssignedWithNullInspection"
+      groupPath="Aurea" language="JAVA" shortName="OptionalAssignedWithNullInspection"
       bundle="messages.TrilogyBundle"
       key="inspection.trilogy.optional.assigned.with.null.display.name"
       groupBundle="messages.TrilogyBundle"
@@ -93,7 +93,7 @@
       level="ERROR"
       implementationClass="com.aurea.codeInspection.OptionalAssignedWithNullInspection" />
     <localInspection
-      groupPath="Java" language="JAVA" shortName="MethodPrimitiveParameterReassignedInspection"
+      groupPath="Aurea" language="JAVA" shortName="MethodPrimitiveParameterReassignedInspection"
       bundle="messages.TrilogyBundle"
       key="inspection.trilogy.method.primitive.parameter.reassigned.display.name"
       groupBundle="messages.TrilogyBundle"
@@ -102,7 +102,7 @@
       level="ERROR"
       implementationClass="com.aurea.codeInspection.MethodPrimitiveParameterReassignedInspection" />
     <localInspection
-      groupPath="Java" language="JAVA" shortName="MethodObjectParameterReassignedInspection"
+      groupPath="Aurea" language="JAVA" shortName="MethodObjectParameterReassignedInspection"
       bundle="messages.TrilogyBundle"
       key="inspection.trilogy.method.object.parameter.reassigned.display.name"
       groupBundle="messages.TrilogyBundle"
@@ -111,7 +111,7 @@
       level="ERROR"
       implementationClass="com.aurea.codeInspection.MethodObjectParameterReassignedInspection" />
     <localInspection
-      groupPath="Java" language="JAVA" shortName="NullAssignmentInspection"
+      groupPath="Aurea" language="JAVA" shortName="NullAssignmentInspection"
       bundle="messages.TrilogyBundle"
       key="inspection.trilogy.null.assignment.display.name"
       groupBundle="messages.TrilogyBundle"
@@ -120,7 +120,7 @@
       level="WARNING"
       implementationClass="com.aurea.codeInspection.NullAssignmentInspection" />
     <localInspection
-      groupPath="Java" language="JAVA" shortName="VectorInspection"
+      groupPath="Aurea" language="JAVA" shortName="VectorInspection"
       bundle="messages.TrilogyBundle"
       key="inspection.trilogy.replace.vector.display.name"
       groupBundle="messages.TrilogyBundle"
@@ -129,7 +129,7 @@
       level="ERROR"
       implementationClass="com.aurea.codeInspection.VectorInspection" />
     <localInspection
-      groupPath="Java" language="JAVA" shortName="ExplicitCollectionInspection"
+      groupPath="Aurea" language="JAVA" shortName="ExplicitCollectionInspection"
       bundle="messages.TrilogyBundle"
       key="inspection.trilogy.explicit.collection.types.display.name"
       groupBundle="messages.TrilogyBundle"
@@ -142,33 +142,7 @@
 
   <actions>
     <!-- Add your actions here -->
-    <group id="MyPlugin.SampleMenu" text="_Sample Menu" description="Sample menu">
-      <add-to-group group-id="MainMenu" anchor="last"  />
-      <action id="Myplugin.Textboxes" class="com.aurea.plugin.TextBoxes" text="Text _Boxes" description="A test menu item" />
-      <!--<action id="Myplugin.Dialogs" class="Mypackage.MyShowDialog" text="Show _Dialog" description="A test menu item" />-->
-    </group>
 
-    <action
-      id="StackOverflow.AskQuestion.ToolsMenu"
-      class="com.aurea.plugin.AskQuestionAction"
-      text="Ask Question on Stack Overflow"
-      description="Ask a Question on Stack Overflow">
-      <add-to-group group-id="ToolsMenu" anchor="last"/>
-    </action>
-    <action
-      id="StackOverflow.Search.Editor"
-      class="com.aurea.plugin.SearchAction"
-      text="Search on Stack Overflow"
-      description="Search on Stack Overflow">
-      <add-to-group group-id="EditorPopupMenu" anchor="last"/>
-    </action>
-    <action
-      id="StackOverflow.Search.Console"
-      class="com.aurea.plugin.SearchAction"
-      text="Search on Stack Overflow"
-      description="Search on Stack Overflow">
-      <add-to-group group-id="ConsoleEditorPopupMenu" anchor="last"/>
-    </action>
   </actions>
 
 </idea-plugin>

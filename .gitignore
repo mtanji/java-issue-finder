@@ -26,7 +26,7 @@ gradle-app.setting
 # User-specific stuff:
 .idea/**/tasks.xml
 .idea/dictionaries
-.idea/**
+#.idea/**
 
 # Sensitive or high-churn files:
 .idea/**/dataSources/
@@ -39,7 +39,7 @@ gradle-app.setting
 
 # Gradle:
 .idea/**/gradle.xml
-.idea/**/libraries
+#.idea/**/libraries
 
 # CMake
 cmake-build-debug/
@@ -72,8 +72,11 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
-*.iml
-.idea/
+#*.iml
+#.idea/
 *.log
+.idea/**/workspace.xml
+.idea/**/usage.statistics.xml
+.idea/**/tasks.xml 
 
 *.txt

@@ -1,17 +1,18 @@
 <idea-plugin>
   <id>com.aurea.plugin.issue.finder.java</id>
-  <name>Aurea Java violations finder</name>
+  <name>Aurea Java Issue Finder</name>
   <version>1.0</version>
-  <vendor email="support@aurea.com" url="http://www.aurea.com">YourCompany</vendor>
+  <vendor email="support@aurea.com" url="https://www.aurea.com/">Aurea</vendor>
 
   <description><![CDATA[
-      Enter short description for your plugin here.<br>
-      <em>most HTML tags may be used</em>
+      Aurea Java Issue Finder provides Aurea contributors a mechanism to find easily Java findings
+      documented in company's <a href="https://confluence.devfactory.com/display/CodeReview/Java+Findings">Java Findings</a> page.
+      Supported findings have both in place summary descriptions and link to detailed description in Confluence.
+      Also they are classified as errors when they have <em>Severe</em> or <em>Red</em> tags, or warnings when they as tagged as <em>Yellow</em>.
     ]]></description>
 
   <change-notes><![CDATA[
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>
+      <b>1.0</b>: First release as a result of a Bootcamp hackaton
     ]]>
   </change-notes>
 
